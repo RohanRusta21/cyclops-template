@@ -113,5 +113,5 @@ spec:
             initialDelaySeconds: {{ .Values.probes.startup.initialDelaySeconds | default 10 }}
             periodSeconds: {{ .Values.probes.startup.periodSeconds | default 10 }}
             failureThreshold: {{ .Values.probes.startup.failureThreshold | default 30 }}
-      {{ end }}
+      # {{ end }}
     {{ end }}
