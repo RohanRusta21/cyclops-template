@@ -8,9 +8,26 @@ general:
 
 scaling:
   replicas: 3
+  resources:
+    cpu: 1
+    memory: 512
+
+probes:
+  startup:
+    initialDelaySeconds: 5
+    periodSeconds: 10
+    failureThreshold: 3
+  liveness:
+    initialDelaySeconds: 10
+    periodSeconds: 20
+  readiness:
+    initialDelaySeconds: 5
+    periodSeconds: 10
+    failureThreshold: 3
 
 networking:
   expose: true
   port: 8080
+
 
 
