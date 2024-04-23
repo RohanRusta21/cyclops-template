@@ -24,6 +24,7 @@ spec:
               containerPort: {{ .Values.networking.port | default 80 }}
               protocol: TCP
           {{- end }}
+          
           env:
           {{- if ((.Values.general).environment) }}
           {{- range $key, $value := (.Values.general).environment }}

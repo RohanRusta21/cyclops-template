@@ -99,6 +99,31 @@
           "port"
         ]
       }
+      "probes": {
+        "type": "object",
+        "title": "Probes",
+        "properties": {
+          "startup-probe": {
+            "title": "startup-probe",
+            "type": "integer",
+            "description": "Probe for startup"
+          }
+          "liveness-probe": {
+            "title": "liveness-probe",
+            "type": "integer",
+            "description": "Probe for liveness"
+          }
+          "readiness-probe": {
+            "title": "readiness-probe",
+            "type": "integer",
+            "description": "Probe for readiness"
+          }
+        },
+        "order": [
+          "expose",
+          "port"
+        ]
+      }
     },
     "required": [
       "name"
@@ -107,7 +132,8 @@
       "name",
       "general",
       "scaling",
-      "networking"
+      "networking",
+      "probes"
     ],
     "title": "Values",
     "type": "object"

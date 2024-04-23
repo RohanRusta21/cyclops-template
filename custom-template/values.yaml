@@ -12,3 +12,5 @@ scaling:
 networking:
   expose: true
   port: 8080
+
+
