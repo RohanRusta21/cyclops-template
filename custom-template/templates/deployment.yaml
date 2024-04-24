@@ -6,7 +6,7 @@ metadata:
   labels:
     app: {{ .Values.name }}
 spec:
-  replicas: {{ .Values.scaling.replicas | default 1 }}
+  replicas: {{ .Values.scaling.replicas }}
   selector:
     matchLabels:
       app: {{ .Values.name }}
@@ -22,7 +22,7 @@ spec:
           {{- if .Values.networking.expose }}
           ports:
             - name: http
-              containerPort: {{ .Values.networking.port | default 80 }}
+              containerPort: {{ .Values.networking.port }}
               protocol: TCP
           {{- end }}
           
@@ -34,32 +34,32 @@ spec:
           resources:
             {{- if .Values.scaling.resources.memory }}
             limits:
-              memory: {{ .Values.scaling.resources.memory }}Gi
+              memory: "{{ .Values.scaling.resources.memory }}Gi"
             {{- end }}
             {{- if .Values.scaling.resources.cpu }}
             requests:
-              cpu: {{ .Values.scaling.resources.cpu }}
+              cpu: "{{ .Values.scaling.resources.cpu }}"
             {{- end }}
 
           readinessProbe:
             httpGet:
-              path: {{ .Values.probes.readiness.path | default "/" }}
+              path: {{ .Values.probes.readiness.path }}
               port: http
-            initialDelaySeconds: {{ .Values.probes.readiness.initialDelaySeconds | default 5 }}
-            periodSeconds: {{ .Values.probes.readiness.periodSeconds | default 10 }}
-            failureThreshold: {{ .Values.probes.readiness.failureThreshold | default 3 }}
+            initialDelaySeconds: {{ .Values.probes.readiness.initialDelaySeconds }}
+            periodSeconds: {{ .Values.probes.readiness.periodSeconds }}
+            failureThreshold: {{ .Values.probes.readiness.failureThreshold }}
 
           livenessProbe:
             httpGet:
-              path: path: {{ .Values.probes.liveness.path | default "/" }}
+              path: {{ .Values.probes.liveness.path }}
               port: http
-            initialDelaySeconds: {{ .Values.probes.liveness.initialDelaySeconds | default 10 }}
-            periodSeconds: {{ .Values.probes.liveness.periodSeconds | default 20 }}
+            initialDelaySeconds: {{ .Values.probes.liveness.initialDelaySeconds }}
+            periodSeconds: {{ .Values.probes.liveness.periodSeconds }}
 
           startupProbe:
             httpGet:
-              path: {{ .Values.probes.startup.path | default "/" }}
+              path: {{ .Values.probes.startup.path }}
               port: http
-            initialDelaySeconds: {{ .Values.probes.startup.initialDelaySeconds | default 10 }}
-            periodSeconds: {{ .Values.probes.startup.periodSeconds | default 10 }}
-            failureThreshold: {{ .Values.probes.startup.failureThreshold | default 30 }}
+            initialDelaySeconds: {{ .Values.probes.startup.initialDelaySeconds }}
+            periodSeconds: {{ .Values.probes.startup.periodSeconds }}
+            failureThreshold: {{ .Values.probes.startup.failureThreshold }}
