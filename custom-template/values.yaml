@@ -14,13 +14,16 @@ scaling:
 
 probes:
   startup:
+    path: "/"
     initialDelaySeconds: 5
     periodSeconds: 10
     failureThreshold: 3
   liveness:
+    path: "/"
     initialDelaySeconds: 10
     periodSeconds: 20
   readiness:
+    path: "/"
     initialDelaySeconds: 5
     periodSeconds: 10
     failureThreshold: 3

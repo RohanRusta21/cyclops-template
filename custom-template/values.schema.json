@@ -87,6 +87,10 @@
           "title": "Startup Probe",
           "type": "object",
           "properties": {
+            "path": {
+              "title": "Path for probe",
+              "type": "string"
+            },
             "initialDelaySeconds": {
               "title": "Initial Delay Seconds",
               "type": "integer"
@@ -105,6 +109,10 @@
           "title": "Liveness Probe",
           "type": "object",
           "properties": {
+            "path": {
+              "title": "Path for probe",
+              "type": "string"
+            },
             "initialDelaySeconds": {
               "title": "Initial Delay Seconds",
               "type": "integer"
@@ -119,6 +127,10 @@
           "title": "Readiness Probe",
           "type": "object",
           "properties": {
+            "path": {
+              "title": "Path for probe",
+              "type": "string"
+            },
             "initialDelaySeconds": {
               "title": "Initial Delay Seconds",
               "type": "integer"

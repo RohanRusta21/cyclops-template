@@ -43,7 +43,7 @@ spec:
 
           readinessProbe:
             httpGet:
-              path: /
+              path: {{ .Values.probes.readiness.path | default "/" }}
               port: http
             initialDelaySeconds: {{ .Values.probes.readiness.initialDelaySeconds | default 5 }}
             periodSeconds: {{ .Values.probes.readiness.periodSeconds | default 10 }}
@@ -51,14 +51,14 @@ spec:
 
           livenessProbe:
             httpGet:
-              path: /
+              path: path: {{ .Values.probes.liveness.path | default "/" }}
               port: http
             initialDelaySeconds: {{ .Values.probes.liveness.initialDelaySeconds | default 10 }}
             periodSeconds: {{ .Values.probes.liveness.periodSeconds | default 20 }}
 
           startupProbe:
             httpGet:
-              path: /
+              path: {{ .Values.probes.startup.path | default "/" }}
               port: http
             initialDelaySeconds: {{ .Values.probes.startup.initialDelaySeconds | default 10 }}
             periodSeconds: {{ .Values.probes.startup.periodSeconds | default 10 }}
