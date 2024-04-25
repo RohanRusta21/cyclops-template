@@ -6,7 +6,7 @@ metadata:
   labels:
     app: {{ .Values.name }}
 spec:
-  type: ClusterIP
+  type: {{ (.Values.networking).type }}
   ports:
     - port: {{ (.Values.networking).port }}
       targetPort: http
@@ -14,4 +14,4 @@ spec:
       name: http
   selector:
     app: {{ .Values.name }}
-  {{- end }}
+{{- end }}

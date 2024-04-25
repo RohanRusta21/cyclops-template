@@ -87,11 +87,19 @@
             "title": "Port",
             "type": "integer",
             "description": "Port to expose for your application"
+          },
+          "type": {
+            "title": "Service Type",
+            "type": "string",
+            "description": "Select Service Type",
+            "enum": ["ClusterIP", "NodePort", "LoadBalancer"],
+            "default": "ClusterIP"
           }
         },
         "order": [
           "expose",
-          "port"
+          "port",
+          "type"
         ]
       }
     },
