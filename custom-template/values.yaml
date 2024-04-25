@@ -1,5 +1,4 @@
 name: react-weather-app
-#namespace: default
 general:
   image: wededo4644/weather-app
   version: 89
