@@ -1,8 +1,8 @@
-name: my-app
+name: react-weather-app
 #namespace: default
 general:
-  image: nginx
-  version: 1.14.2
+  image: wededo4644/weather-app
+  version: 89
   environment:
     ENVIRONMENT: production
 
@@ -11,4 +11,4 @@ scaling:
 
 networking:
   expose: true
-  port: 8080
+  port: 3000
