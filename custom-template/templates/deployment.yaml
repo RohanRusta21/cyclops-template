@@ -18,14 +18,14 @@ spec:
       containers:
         - name: {{ .Values.name }}
           image: "{{ .Values.general.image }}:{{ .Values.general.version }}"
-          
+
           {{- if .Values.networking.expose }}
           ports:
             - name: http
               containerPort: {{ .Values.networking.port }}
               protocol: TCP
           {{- end }}
-          
+
           env:
           {{- if .Values.general.environment }}
           {{- toYaml .Values.general.environment | indent 12 }}
@@ -41,6 +41,7 @@ spec:
               cpu: "{{ .Values.scaling.resources.cpu }}"
             {{- end }}
 
+          {{- if .Values.probes.readiness.enabled }}
           readinessProbe:
             httpGet:
               path: {{ .Values.probes.readiness.path }}
@@ -48,14 +49,18 @@ spec:
             initialDelaySeconds: {{ .Values.probes.readiness.initialDelaySeconds }}
             periodSeconds: {{ .Values.probes.readiness.periodSeconds }}
             failureThreshold: {{ .Values.probes.readiness.failureThreshold }}
+          {{- end }}
 
+          {{- if .Values.probes.liveness.enabled }}
           livenessProbe:
             httpGet:
               path: {{ .Values.probes.liveness.path }}
               port: http
             initialDelaySeconds: {{ .Values.probes.liveness.initialDelaySeconds }}
             periodSeconds: {{ .Values.probes.liveness.periodSeconds }}
+          {{- end }}
 
+          {{- if .Values.probes.startup.enabled }}
           startupProbe:
             httpGet:
               path: {{ .Values.probes.startup.path }}
@@ -63,3 +68,4 @@ spec:
             initialDelaySeconds: {{ .Values.probes.startup.initialDelaySeconds }}
             periodSeconds: {{ .Values.probes.startup.periodSeconds }}
             failureThreshold: {{ .Values.probes.startup.failureThreshold }}
+          {{- end }}
