@@ -89,7 +89,7 @@
           "type": "object",
           "description": "Configuration for the startup probe",
           "properties": {
-            "enabled": {
+            "enabled_1": {
               "title": "Enable probe",
               "type": "boolean",
               "description": "Toggle to enable or disable the probe"
@@ -121,7 +121,7 @@
           "type": "object",
           "description": "Configuration for the liveness probe",
           "properties": {
-            "enabled": {
+            "enabled_2": {
               "title": "Enable probe",
               "type": "boolean",
               "description": "Toggle to enable or disable the probe"
@@ -153,7 +153,7 @@
           "type": "object",
           "description": "Configuration for the readiness probe",
           "properties": {
-            "enabled": {
+            "enabled_3": {
               "title": "Enable probe",
               "type": "boolean",
               "description": "Toggle to enable or disable the probe"
