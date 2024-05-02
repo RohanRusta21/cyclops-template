@@ -24,6 +24,7 @@ probes:
     path: "/"
     initialDelaySeconds: 10
     periodSeconds: 20
+    failureThreshold: 3
   readiness:
     enabled: true
     path: "/"
