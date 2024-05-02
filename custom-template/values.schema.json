@@ -84,16 +84,17 @@
       "title": "Probes",
       "description": "Configuration for container probes",
       "properties": {
+        "enabled": {
+          "title": "Enabled",
+          "type": "boolean",
+          "default": true,
+          "description": "Toggle to enable or disable all probes"
+        },
         "startup": {
           "title": "Startup Probe",
           "type": "object",
           "description": "Configuration for the startup probe",
           "properties": {
-            "enabled_1": {
-              "title": "Enable probe",
-              "type": "boolean",
-              "description": "Toggle to enable or disable the probe"
-            },
             "path": {
               "title": "Path for probe",
               "type": "string",
@@ -121,11 +122,6 @@
           "type": "object",
           "description": "Configuration for the liveness probe",
           "properties": {
-            "enabled_2": {
-              "title": "Enable probe",
-              "type": "boolean",
-              "description": "Toggle to enable or disable the probe"
-            },
             "path": {
               "title": "Path for probe",
               "type": "string",
@@ -153,11 +149,6 @@
           "type": "object",
           "description": "Configuration for the readiness probe",
           "properties": {
-            "enabled_3": {
-              "title": "Enable probe",
-              "type": "boolean",
-              "description": "Toggle to enable or disable the probe"
-            },
             "path": {
               "title": "Path for probe",
               "type": "string",
@@ -182,11 +173,9 @@
         }
       },
       "order": [
-        "enabled_1",
+        "enabled",
         "startup",
-        "enabled_2",
         "liveness",
-        "enabled_3",
         "readiness"
       ]
     },
