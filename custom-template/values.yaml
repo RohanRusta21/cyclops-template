@@ -14,19 +14,19 @@ scaling:
 
 probes:
   startup:
-    enabled: true
+    enabled_1: true
     path: "/"
     initialDelaySeconds: 5
     periodSeconds: 10
     failureThreshold: 3
   liveness:
-    enabled: true
+    enabled_2: true
     path: "/"
     initialDelaySeconds: 10
     periodSeconds: 20
     failureThreshold: 3
   readiness:
-    enabled: true
+    enabled_3: true
     path: "/"
     initialDelaySeconds: 5
     periodSeconds: 10
