@@ -182,8 +182,11 @@
         }
       },
       "order": [
+        "enabled_1",
         "startup",
+        "enabled_2",
         "liveness",
+        "enabled_3",
         "readiness"
       ]
     },
