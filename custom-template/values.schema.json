@@ -140,7 +140,7 @@
               "title": "Period Seconds",
               "type": "integer",
               "description": "The number of seconds between each probe"
-            }
+            },
             "failureThreshold": {
               "title": "Failure Threshold",
               "type": "integer",
