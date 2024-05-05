@@ -84,17 +84,17 @@
       "title": "Probes",
       "description": "Configuration for container probes",
       "properties": {
+        "enabled": {
+          "title": "Enabled",
+          "type": "boolean",
+          "default": true,
+          "description": "Toggle to enable or disable all probes"
+        },
         "startup": {
           "title": "Startup Probe",
           "type": "object",
           "description": "Configuration for the startup probe",
           "properties": {
-            "enabled": {
-              "title": "Enabled",
-              "type": "boolean",
-              "default": false,
-              "description": "Toggle to enable or disable the startup probe"
-            },
             "path": {
               "title": "Path for probe",
               "type": "string",
@@ -115,26 +115,13 @@
               "type": "integer",
               "description": "The number of consecutive failures required to consider the probe as failed"
             }
-          },
-          "order": [
-            "enabled",
-            "path",
-            "initialDelaySeconds",
-            "periodSeconds",
-            "failureThreshold"
-          ]
+          }
         },
         "liveness": {
           "title": "Liveness Probe",
           "type": "object",
           "description": "Configuration for the liveness probe",
           "properties": {
-            "enabled": {
-              "title": "Enabled",
-              "type": "boolean",
-              "default": false,
-              "description": "Toggle to enable or disable the liveness probe"
-            },
             "path": {
               "title": "Path for probe",
               "type": "string",
@@ -155,26 +142,13 @@
               "type": "integer",
               "description": "The number of consecutive failures required to consider the probe as failed"
             }
-          },
-          "order": [
-            "enabled",
-            "path",
-            "initialDelaySeconds",
-            "periodSeconds",
-            "failureThreshold"
-          ]
+          }
         },
         "readiness": {
           "title": "Readiness Probe",
           "type": "object",
           "description": "Configuration for the readiness probe",
           "properties": {
-            "enabled": {
-              "title": "Enabled",
-              "type": "boolean",
-              "default": false,
-              "description": "Toggle to enable or disable the readiness probe"
-            },
             "path": {
               "title": "Path for probe",
               "type": "string",
@@ -195,17 +169,11 @@
               "type": "integer",
               "description": "The number of consecutive failures required to consider the probe as failed"
             }
-          },
-          "order": [
-            "enabled",
-            "path",
-            "initialDelaySeconds",
-            "periodSeconds",
-            "failureThreshold"
-          ]
+          }
         }
       },
       "order": [
+        "enabled",
         "startup",
         "liveness",
         "readiness"
@@ -246,4 +214,3 @@
   "title": "Values",
   "type": "object"
 }
-
