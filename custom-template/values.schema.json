@@ -84,12 +84,6 @@
       "title": "Probes",
       "description": "Configuration for container probes",
       "properties": {
-        "enabled": {
-          "title": "Enabled",
-          "type": "boolean",
-          "default": false,
-          "description": "Toggle to enable or disable all probes"
-        },
         "startup": {
           "title": "Startup Probe",
           "type": "object",
@@ -212,7 +206,6 @@
         }
       },
       "order": [
-        "enabled",
         "startup",
         "liveness",
         "readiness"
