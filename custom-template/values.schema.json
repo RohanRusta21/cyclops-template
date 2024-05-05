@@ -1,4 +1,6 @@
 {
+  "title": "Values",
+  "type": "object",
   "properties": {
     "name": {
       "type": "string",
@@ -61,8 +63,8 @@
             },
             "memory": {
               "title": "Memory",
-              "description": "Measured in Gi",
-              "type": "integer"
+              "type": "integer",
+              "description": "Measured in Gi"
             }
           },
           "order": [
@@ -115,7 +117,13 @@
               "type": "integer",
               "description": "The number of consecutive failures required to consider the probe as failed"
             }
-          }
+          },
+          "order": [
+            "path",
+            "initialDelaySeconds",
+            "periodSeconds",
+            "failureThreshold"
+          ]
         },
         "liveness": {
           "title": "Liveness Probe",
@@ -142,7 +150,13 @@
               "type": "integer",
               "description": "The number of consecutive failures required to consider the probe as failed"
             }
-          }
+          },
+          "order": [
+            "path",
+            "initialDelaySeconds",
+            "periodSeconds",
+            "failureThreshold"
+          ]
         },
         "readiness": {
           "title": "Readiness Probe",
@@ -169,7 +183,13 @@
               "type": "integer",
               "description": "The number of consecutive failures required to consider the probe as failed"
             }
-          }
+          },
+          "order": [
+            "path",
+            "initialDelaySeconds",
+            "periodSeconds",
+            "failureThreshold"
+          ]
         }
       },
       "order": [
@@ -210,7 +230,5 @@
     "scaling",
     "probes",
     "networking"
-  ],
-  "title": "Values",
-  "type": "object"
+  ]
 }
