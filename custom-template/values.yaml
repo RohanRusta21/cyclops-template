@@ -13,20 +13,18 @@ scaling:
     memory: 512
 
 probes:
+  enabled: true
   startup:
-    enabled: false
     path: "/"
     initialDelaySeconds: 5
     periodSeconds: 10
     failureThreshold: 3
   liveness:
-    enabled: false
     path: "/"
     initialDelaySeconds: 10
     periodSeconds: 20
     failureThreshold: 3
   readiness:
-    enabled: false
     path: "/"
     initialDelaySeconds: 5
     periodSeconds: 10
