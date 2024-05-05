@@ -13,7 +13,6 @@ scaling:
     memory: 512
 
 probes:
-  enabled: false
   startup:
     enabled: false
     path: "/"
