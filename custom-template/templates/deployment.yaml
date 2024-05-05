@@ -27,13 +27,13 @@ spec:
           {{- end }}
           
           env:
-          {{- if ((.Values.general).environment) }}
+          {{- if (.Values.general).environment }}
           {{- range $key, $value := (.Values.general).environment }}
             - name: {{ $key }}
               value: {{ $value | quote }}
           {{- end }}
           {{- end }}
-          {{- if or ((.Values.scaling).resources).memory ((.Values.scaling).resources).cpu }}
+          {{- if or (.Values.scaling.resources.memory) (.Values.scaling.resources.cpu) }}
 
           resources:
             {{- if .Values.scaling.resources.memory }}
