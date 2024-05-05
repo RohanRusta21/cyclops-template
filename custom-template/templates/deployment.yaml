@@ -45,7 +45,6 @@ spec:
               cpu: "{{ .Values.scaling.resources.cpu }}"
             {{- end }}
 
-          {{- if .Values.probes.enabled }}
           {{- if .Values.probes.startup.enabled }}
           startupProbe:
             httpGet:
