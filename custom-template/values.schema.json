@@ -1,6 +1,4 @@
 {
-  "title": "Values",
-  "type": "object",
   "properties": {
     "name": {
       "type": "string",
@@ -63,8 +61,8 @@
             },
             "memory": {
               "title": "Memory",
-              "type": "integer",
-              "description": "Measured in Gi"
+              "description": "Measured in Gi",
+              "type": "integer"
             }
           },
           "order": [
@@ -89,7 +87,7 @@
         "enabled": {
           "title": "Enabled",
           "type": "boolean",
-          "default": true,
+          "default": false,
           "description": "Toggle to enable or disable all probes"
         },
         "startup": {
@@ -230,5 +228,7 @@
     "scaling",
     "probes",
     "networking"
-  ]
+  ],
+  "title": "Values",
+  "type": "object"
 }
