@@ -27,9 +27,13 @@ spec:
           {{- end }}
           
           env:
-          {{- if .Values.general.environment }}
-          {{- toYaml .Values.general.environment | indent 12 }}
+          {{- if ((.Values.general).environment) }}
+          {{- range $key, $value := (.Values.general).environment }}
+            - name: {{ $key }}
+              value: {{ $value | quote }}
           {{- end }}
+          {{- end }}
+          {{- if or ((.Values.scaling).resources).memory ((.Values.scaling).resources).cpu }}
 
           resources:
             {{- if .Values.scaling.resources.memory }}
@@ -41,6 +45,7 @@ spec:
               cpu: "{{ .Values.scaling.resources.cpu }}"
             {{- end }}
 
+          {{- if .Values.probes.enabled }}
           readinessProbe:
             httpGet:
               path: {{ .Values.probes.readiness.path }}
@@ -63,3 +68,4 @@ spec:
             initialDelaySeconds: {{ .Values.probes.startup.initialDelaySeconds }}
             periodSeconds: {{ .Values.probes.startup.periodSeconds }}
             failureThreshold: {{ .Values.probes.startup.failureThreshold }}
+          {{- end }}
