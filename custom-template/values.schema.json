@@ -95,6 +95,12 @@
           "type": "object",
           "description": "Configuration for the startup probe",
           "properties": {
+            "enabled": {
+              "title": "Enabled",
+              "type": "boolean",
+              "default": false,
+              "description": "Toggle to enable or disable the startup probe"
+            },
             "path": {
               "title": "Path for probe",
               "type": "string",
@@ -117,6 +123,7 @@
             }
           },
           "order": [
+            "enabled",
             "path",
             "initialDelaySeconds",
             "periodSeconds",
@@ -128,6 +135,12 @@
           "type": "object",
           "description": "Configuration for the liveness probe",
           "properties": {
+            "enabled": {
+              "title": "Enabled",
+              "type": "boolean",
+              "default": false,
+              "description": "Toggle to enable or disable the liveness probe"
+            },
             "path": {
               "title": "Path for probe",
               "type": "string",
@@ -150,6 +163,7 @@
             }
           },
           "order": [
+            "enabled",
             "path",
             "initialDelaySeconds",
             "periodSeconds",
@@ -161,6 +175,12 @@
           "type": "object",
           "description": "Configuration for the readiness probe",
           "properties": {
+            "enabled": {
+              "title": "Enabled",
+              "type": "boolean",
+              "default": false,
+              "description": "Toggle to enable or disable the readiness probe"
+            },
             "path": {
               "title": "Path for probe",
               "type": "string",
@@ -183,6 +203,7 @@
             }
           },
           "order": [
+            "enabled",
             "path",
             "initialDelaySeconds",
             "periodSeconds",
